@@ -63,7 +63,7 @@
         <script src="data/RT06PadukuhanTrukan_15.js"></script>
         <script src="data/GenanganBanjir_11.js"></script>
         <script src="data/Sungai_12.js"></script>
-        <script src="data/Bangunan.js"></script>
+        <script src="data/Bangunan_13.js"></script>
         <script src="data/BatasPadukuhan_14.js"></script>
         <script src="data/BatasKalurahan_15.js"></script>
         <script src="data/JaringanJalan_16.js"></script>
@@ -71,17 +71,16 @@
         <script src="data/FasilitasUmum_18.js"></script>
         <script src="data/TitikEvakuasi_19.js"></script>
         <script src="data/RT01_Kloron.js"></script>
-        <script src="data/RT01_Segoroyoso1.js"></script>
-        <script src="data/RT01_Segoroyoso1_fasum.js"></script>
-        <script src="data/RT01_Segoroyoso2.js"></script>
         <script src="data/RT02_Kloron.js"></script>
-        <script src="data/RT02_Segoroyoso1.js"></script>
-        <script src="data/RT02_Segoroyoso2.js"></script>
         <script src="data/RT03_Kloron.js"></script>
-        <script src="data/RT03_Segoroyoso1.js"></script>
-        <script src="data/RT03_Segoroyoso2.js"></script>
         <script src="data/RT04_Kloron.js"></script>
+        <script src="data/RT01_Segoroyoso1.js"></script>
+        <script src="data/RT02_Segoroyoso1.js"></script>
+        <script src="data/RT03_Segoroyoso1.js"></script>
         <script src="data/RT04_Segoroyoso1.js"></script>
+        <script src="data/RT01_Segoroyoso2.js"></script>
+        <script src="data/RT02_Segoroyoso2.js"></script>
+        <script src="data/RT03_Segoroyoso2.js"></script>
         <script src="data/RT04_Segoroyoso2.js"></script>
         <script src="data/Batas_RT_Kloron.js"></script>
         <script src="data/Batas_RT_Segoroyoso1.js"></script>
@@ -737,7 +736,7 @@
         bounds_group.addLayer(layer_Sungai_12);
         map.addLayer(layer_Sungai_12);
         
-        function pop_Bangunan(feature, layer) {
+        function pop_Bangunan_13(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -746,18 +745,11 @@
                 },
                 mouseover: highlightFeature,
             });
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Id</th>\
-                        <td>' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_Bangunan_0() {
+        function style_Bangunan_13_0() {
             return {
-                pane: 'pane_Bangunan',
+                pane: 'pane_Bangunan_13',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -770,17 +762,17 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Bangunan');
-        map.getPane('pane_Bangunan').style.zIndex = 416;
-        map.getPane('pane_Bangunan').style['mix-blend-mode'] = 'normal';
-        var layer_Bangunan = new L.geoJson(json_Bangunan, {
+        map.createPane('pane_Bangunan_13');
+        map.getPane('pane_Bangunan_13').style.zIndex = 416;
+        map.getPane('pane_Bangunan_13').style['mix-blend-mode'] = 'normal';
+        var layer_Bangunan_13 = new L.geoJson(json_Bangunan_13, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Bangunan',
-            layerName: 'layer_Bangunan',
-            pane: 'pane_Bangunan',
-            onEachFeature: pop_Bangunan,
-            style: style_Bangunan_0,
+            dataVar: 'json_Bangunan_13',
+            layerName: 'layer_Bangunan_13',
+            pane: 'pane_Bangunan_13',
+            onEachFeature: pop_Bangunan_13,
+            style: style_Bangunan_13_0,
         });
 
         function pop_Batas_RT_Kloron(feature, layer) {
@@ -2124,7 +2116,255 @@
             style: style_RT01_Kloron_0,
         });
         bounds_group.addLayer(layer_RT01_Kloron);
-        map.addLayer(layer_RT01_Kloron);           
+        map.addLayer(layer_RT01_Kloron);
+
+        function pop_RT02_Kloron(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Object Id</th>\
+                        <td>' + (feature.properties['Object Id'] !== null ? autolinker.link(feature.properties['Object Id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fungsi</th>\
+                        <td>' + (feature.properties['Fungsi'] !== null ? autolinker.link(feature.properties['Fungsi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Keterangan</th>\
+                        <td>' + (feature.properties['Keterangan'] !== null ? autolinker.link(feature.properties['Keterangan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RT02_Kloron_0() {
+            return {
+                pane: 'pane_RT02_Kloron',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,204,191,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_RT02_Kloron');
+        map.getPane('pane_RT02_Kloron').style.zIndex = 409;
+        map.getPane('pane_RT02_Kloron').style['mix-blend-mode'] = 'normal';
+        var layer_RT02_Kloron = new L.geoJson(json_rt02_kloron, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_rt02_kloron',
+            layerName: 'layer_RT02_Kloron',
+            pane: 'pane_RT02_Kloron',
+            onEachFeature: pop_RT02_Kloron,
+            style: style_RT02_Kloron_0,
+        });
+        bounds_group.addLayer(layer_RT02_Kloron);
+        map.addLayer(layer_RT02_Kloron);
+
+        function pop_RT03_Kloron(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Object Id</th>\
+                        <td>' + (feature.properties['Object Id'] !== null ? autolinker.link(feature.properties['Object Id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fungsi</th>\
+                        <td>' + (feature.properties['Fungsi'] !== null ? autolinker.link(feature.properties['Fungsi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Keterangan</th>\
+                        <td>' + (feature.properties['Keterangan'] !== null ? autolinker.link(feature.properties['Keterangan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nomor KK</th>\
+                        <td>' + (feature.properties['Nomor KK'] !== null ? autolinker.link(feature.properties['Nomor KK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nama KK</th>\
+                        <td>' + (feature.properties['Nama KK'] !== null ? autolinker.link(feature.properties['Nama KK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Alamat</th>\
+                        <td>' + (feature.properties['Alamat'] !== null ? autolinker.link(feature.properties['Alamat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">RT</th>\
+                        <td>' + (feature.properties['RT'] !== null ? autolinker.link(feature.properties['RT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nama Dusun</th>\
+                        <td>' + (feature.properties['Nama Dusun'] !== null ? autolinker.link(feature.properties['Nama Dusun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bulan Pengisian</th>\
+                        <td>' + (feature.properties['Bulan Pengisian'] !== null ? autolinker.link(feature.properties['Bulan Pengisian'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tahun Pengisian</th>\
+                        <td>' + (feature.properties['Tahun Pengisian'] !== null ? autolinker.link(feature.properties['Tahun Pengisian'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Pengisi</th>\
+                        <td>' + (feature.properties['Pengisi'] !== null ? autolinker.link(feature.properties['Pengisi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Jabatan</th>\
+                        <td>' + (feature.properties['Jabatan'] !== null ? autolinker.link(feature.properties['Jabatan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sumber Data</th>\
+                        <td>' + (feature.properties['Sumber Data'] !== null ? autolinker.link(feature.properties['Sumber Data'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RT03_Kloron_0() {
+            return {
+                pane: 'pane_RT03_Kloron',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,204,191,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_RT03_Kloron');
+        map.getPane('pane_RT03_Kloron').style.zIndex = 409;
+        map.getPane('pane_RT03_Kloron').style['mix-blend-mode'] = 'normal';
+        var layer_RT03_Kloron = new L.geoJson(json_rt03_kloron, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_rt03_kloron',
+            layerName: 'layer_RT03_Kloron',
+            pane: 'pane_RT03_Kloron',
+            onEachFeature: pop_RT03_Kloron,
+            style: style_RT03_Kloron_0,
+        });
+        bounds_group.addLayer(layer_RT03_Kloron);
+        map.addLayer(layer_RT03_Kloron);
+
+        function pop_RT04_Kloron(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Object Id</th>\
+                        <td>' + (feature.properties['Object Id'] !== null ? autolinker.link(feature.properties['Object Id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fungsi</th>\
+                        <td>' + (feature.properties['Fungsi'] !== null ? autolinker.link(feature.properties['Fungsi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Keterangan</th>\
+                        <td>' + (feature.properties['Keterangan'] !== null ? autolinker.link(feature.properties['Keterangan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nomor KK</th>\
+                        <td>' + (feature.properties['Nomor KK'] !== null ? autolinker.link(feature.properties['Nomor KK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nama KK</th>\
+                        <td>' + (feature.properties['Nama KK'] !== null ? autolinker.link(feature.properties['Nama KK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Alamat</th>\
+                        <td>' + (feature.properties['Alamat'] !== null ? autolinker.link(feature.properties['Alamat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">RT</th>\
+                        <td>' + (feature.properties['RT'] !== null ? autolinker.link(feature.properties['RT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nama Dusun</th>\
+                        <td>' + (feature.properties['Nama Dusun'] !== null ? autolinker.link(feature.properties['Nama Dusun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bulan Pengisian</th>\
+                        <td>' + (feature.properties['Bulan Pengisian'] !== null ? autolinker.link(feature.properties['Bulan Pengisian'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tahun Pengisian</th>\
+                        <td>' + (feature.properties['Tahun Pengisian'] !== null ? autolinker.link(feature.properties['Tahun Pengisian'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Pengisi</th>\
+                        <td>' + (feature.properties['Pengisi'] !== null ? autolinker.link(feature.properties['Pengisi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Jabatan</th>\
+                        <td>' + (feature.properties['Jabatan'] !== null ? autolinker.link(feature.properties['Jabatan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sumber Data</th>\
+                        <td>' + (feature.properties['Sumber Data'] !== null ? autolinker.link(feature.properties['Sumber Data'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RT04_Kloron_0() {
+            return {
+                pane: 'pane_RT04_Kloron',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,204,191,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_RT04_Kloron');
+        map.getPane('pane_RT04_Kloron').style.zIndex = 409;
+        map.getPane('pane_RT04_Kloron').style['mix-blend-mode'] = 'normal';
+        var layer_RT04_Kloron = new L.geoJson(json_rt04_kloron, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_rt04_kloron',
+            layerName: 'layer_RT04_Kloron',
+            pane: 'pane_RT04_Kloron',
+            onEachFeature: pop_RT04_Kloron,
+            style: style_RT04_Kloron_0,
+        });
+        bounds_group.addLayer(layer_RT04_Kloron);
+        map.addLayer(layer_RT04_Kloron);
 
         function pop_RT01_Segoroyoso1(feature, layer) {
             layer.on({
@@ -2221,6 +2461,294 @@
         });
         bounds_group.addLayer(layer_RT01_Segoroyoso1);
         map.addLayer(layer_RT01_Segoroyoso1);
+
+        function pop_RT02_Segoroyoso1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Object Id</th>\
+                        <td>' + (feature.properties['Object Id'] !== null ? autolinker.link(feature.properties['Object Id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fungsi</th>\
+                        <td>' + (feature.properties['Fungsi'] !== null ? autolinker.link(feature.properties['Fungsi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Keterangan</th>\
+                        <td>' + (feature.properties['Keterangan'] !== null ? autolinker.link(feature.properties['Keterangan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nomor KK</th>\
+                        <td>' + (feature.properties['Nomor KK'] !== null ? autolinker.link(feature.properties['Nomor KK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nama KK</th>\
+                        <td>' + (feature.properties['Nama KK'] !== null ? autolinker.link(feature.properties['Nama KK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Alamat</th>\
+                        <td>' + (feature.properties['Alamat'] !== null ? autolinker.link(feature.properties['Alamat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">RT</th>\
+                        <td>' + (feature.properties['RT'] !== null ? autolinker.link(feature.properties['RT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nama Dusun</th>\
+                        <td>' + (feature.properties['Nama Dusun'] !== null ? autolinker.link(feature.properties['Nama Dusun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bulan Pengisian</th>\
+                        <td>' + (feature.properties['Bulan Pengisian'] !== null ? autolinker.link(feature.properties['Bulan Pengisian'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tahun Pengisian</th>\
+                        <td>' + (feature.properties['Tahun Pengisian'] !== null ? autolinker.link(feature.properties['Tahun Pengisian'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Pengisi</th>\
+                        <td>' + (feature.properties['Pengisi'] !== null ? autolinker.link(feature.properties['Pengisi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Jabatan</th>\
+                        <td>' + (feature.properties['Jabatan'] !== null ? autolinker.link(feature.properties['Jabatan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sumber Data</th>\
+                        <td>' + (feature.properties['Sumber Data'] !== null ? autolinker.link(feature.properties['Sumber Data'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RT02_Segoroyoso1_0() {
+            return {
+                pane: 'pane_RT02_Segoroyoso1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,204,191,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_RT02_Segoroyoso1');
+        map.getPane('pane_RT02_Segoroyoso1').style.zIndex = 409;
+        map.getPane('pane_RT02_Segoroyoso1').style['mix-blend-mode'] = 'normal';
+        var layer_RT02_Segoroyoso1 = new L.geoJson(json_rt02_segoroyoso1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_rt02_segoroyoso1',
+            layerName: 'layer_RT02_Segoroyoso1',
+            pane: 'pane_RT02_Segoroyoso1',
+            onEachFeature: pop_RT02_Segoroyoso1,
+            style: style_RT02_Segoroyoso1_0,
+        });
+        bounds_group.addLayer(layer_RT02_Segoroyoso1);
+        map.addLayer(layer_RT02_Segoroyoso1);
+
+        function pop_RT03_Segoroyoso1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Object Id</th>\
+                        <td>' + (feature.properties['Object Id'] !== null ? autolinker.link(feature.properties['Object Id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fungsi</th>\
+                        <td>' + (feature.properties['Fungsi'] !== null ? autolinker.link(feature.properties['Fungsi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Keterangan</th>\
+                        <td>' + (feature.properties['Keterangan'] !== null ? autolinker.link(feature.properties['Keterangan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nomor KK</th>\
+                        <td>' + (feature.properties['Nomor KK'] !== null ? autolinker.link(feature.properties['Nomor KK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nama KK</th>\
+                        <td>' + (feature.properties['Nama KK'] !== null ? autolinker.link(feature.properties['Nama KK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Alamat</th>\
+                        <td>' + (feature.properties['Alamat'] !== null ? autolinker.link(feature.properties['Alamat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">RT</th>\
+                        <td>' + (feature.properties['RT'] !== null ? autolinker.link(feature.properties['RT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nama Dusun</th>\
+                        <td>' + (feature.properties['Nama Dusun'] !== null ? autolinker.link(feature.properties['Nama Dusun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bulan Pengisian</th>\
+                        <td>' + (feature.properties['Bulan Pengisian'] !== null ? autolinker.link(feature.properties['Bulan Pengisian'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tahun Pengisian</th>\
+                        <td>' + (feature.properties['Tahun Pengisian'] !== null ? autolinker.link(feature.properties['Tahun Pengisian'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Pengisi</th>\
+                        <td>' + (feature.properties['Pengisi'] !== null ? autolinker.link(feature.properties['Pengisi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Jabatan</th>\
+                        <td>' + (feature.properties['Jabatan'] !== null ? autolinker.link(feature.properties['Jabatan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sumber Data</th>\
+                        <td>' + (feature.properties['Sumber Data'] !== null ? autolinker.link(feature.properties['Sumber Data'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RT03_Segoroyoso1_0() {
+            return {
+                pane: 'pane_RT03_Segoroyoso1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,204,191,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_RT03_Segoroyoso1');
+        map.getPane('pane_RT03_Segoroyoso1').style.zIndex = 409;
+        map.getPane('pane_RT03_Segoroyoso1').style['mix-blend-mode'] = 'normal';
+        var layer_RT03_Segoroyoso1 = new L.geoJson(json_rt03_segoroyoso1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_rt03_segoroyoso1',
+            layerName: 'layer_RT03_Segoroyoso1',
+            pane: 'pane_RT03_Segoroyoso1',
+            onEachFeature: pop_RT03_Segoroyoso1,
+            style: style_RT03_Segoroyoso1_0,
+        });
+        bounds_group.addLayer(layer_RT03_Segoroyoso1);
+        map.addLayer(layer_RT03_Segoroyoso1);
+
+        function pop_RT04_Segoroyoso1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Object Id</th>\
+                        <td>' + (feature.properties['Object Id'] !== null ? autolinker.link(feature.properties['Object Id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fungsi</th>\
+                        <td>' + (feature.properties['Fungsi'] !== null ? autolinker.link(feature.properties['Fungsi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Keterangan</th>\
+                        <td>' + (feature.properties['Keterangan'] !== null ? autolinker.link(feature.properties['Keterangan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nomor KK</th>\
+                        <td>' + (feature.properties['Nomor KK'] !== null ? autolinker.link(feature.properties['Nomor KK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nama KK</th>\
+                        <td>' + (feature.properties['Nama KK'] !== null ? autolinker.link(feature.properties['Nama KK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Alamat</th>\
+                        <td>' + (feature.properties['Alamat'] !== null ? autolinker.link(feature.properties['Alamat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">RT</th>\
+                        <td>' + (feature.properties['RT'] !== null ? autolinker.link(feature.properties['RT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nama Dusun</th>\
+                        <td>' + (feature.properties['Nama Dusun'] !== null ? autolinker.link(feature.properties['Nama Dusun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bulan Pengisian</th>\
+                        <td>' + (feature.properties['Bulan Pengisian'] !== null ? autolinker.link(feature.properties['Bulan Pengisian'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tahun Pengisian</th>\
+                        <td>' + (feature.properties['Tahun Pengisian'] !== null ? autolinker.link(feature.properties['Tahun Pengisian'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Pengisi</th>\
+                        <td>' + (feature.properties['Pengisi'] !== null ? autolinker.link(feature.properties['Pengisi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Jabatan</th>\
+                        <td>' + (feature.properties['Jabatan'] !== null ? autolinker.link(feature.properties['Jabatan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sumber Data</th>\
+                        <td>' + (feature.properties['Sumber Data'] !== null ? autolinker.link(feature.properties['Sumber Data'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RT04_Segoroyoso1_0() {
+            return {
+                pane: 'pane_RT04_Segoroyoso1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,204,191,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_RT04_Segoroyoso1');
+        map.getPane('pane_RT04_Segoroyoso1').style.zIndex = 409;
+        map.getPane('pane_RT04_Segoroyoso1').style['mix-blend-mode'] = 'normal';
+        var layer_RT04_Segoroyoso1 = new L.geoJson(json_rt04_segoroyoso1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_rt04_segoroyoso1',
+            layerName: 'layer_RT04_Segoroyoso1',
+            pane: 'pane_RT04_Segoroyoso1',
+            onEachFeature: pop_RT04_Segoroyoso1,
+            style: style_RT04_Segoroyoso1_0,
+        });
+        bounds_group.addLayer(layer_RT04_Segoroyoso1);
+        map.addLayer(layer_RT04_Segoroyoso1);
         
         function pop_RT01_Segoroyoso2(feature, layer) {
             layer.on({
@@ -2318,7 +2846,7 @@
         bounds_group.addLayer(layer_RT01_Segoroyoso2);
         map.addLayer(layer_RT01_Segoroyoso2);
 
-        function pop_RT03_Kloron(feature, layer) {
+        function pop_RT02_Segoroyoso2(feature, layer) {
             layer.on({
                 mouseout: function(e) {
                     for (i in e.target._eventParents) {
@@ -2384,9 +2912,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_RT03_Kloron_0() {
+        function style_RT02_Segoroyoso2_0() {
             return {
-                pane: 'pane_RT03_Kloron',
+                pane: 'pane_RT02_Segoroyoso2',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -2399,20 +2927,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_RT03_Kloron');
-        map.getPane('pane_RT03_Kloron').style.zIndex = 409;
-        map.getPane('pane_RT03_Kloron').style['mix-blend-mode'] = 'normal';
-        var layer_RT03_Kloron = new L.geoJson(json_rt03_kloron, {
+        map.createPane('pane_RT02_Segoroyoso2');
+        map.getPane('pane_RT02_Segoroyoso2').style.zIndex = 409;
+        map.getPane('pane_RT02_Segoroyoso2').style['mix-blend-mode'] = 'normal';
+        var layer_RT02_Segoroyoso2 = new L.geoJson(json_rt02_segoroyoso2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_rt03_kloron',
-            layerName: 'layer_RT03_Kloron',
-            pane: 'pane_RT03_Kloron',
-            onEachFeature: pop_RT03_Kloron,
-            style: style_RT03_Kloron_0,
+            dataVar: 'json_rt02_segoroyoso2',
+            layerName: 'layer_RT02_Segoroyoso2',
+            pane: 'pane_RT02_Segoroyoso2',
+            onEachFeature: pop_RT02_Segoroyoso2,
+            style: style_RT02_Segoroyoso2_0,
         });
-        bounds_group.addLayer(layer_RT03_Kloron);
-        map.addLayer(layer_RT03_Kloron);
+        bounds_group.addLayer(layer_RT02_Segoroyoso2);
+        map.addLayer(layer_RT02_Segoroyoso2);
         
         function pop_RT03_Segoroyoso2(feature, layer) {
             layer.on({
@@ -2508,7 +3036,103 @@
             style: style_RT03_Segoroyoso2_0,
         });
         bounds_group.addLayer(layer_RT03_Segoroyoso2);
-        map.addLayer(layer_RT03_Segoroyoso2);        
+        map.addLayer(layer_RT03_Segoroyoso2);
+        
+        function pop_RT04_Segoroyoso2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Object Id</th>\
+                        <td>' + (feature.properties['Object Id'] !== null ? autolinker.link(feature.properties['Object Id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Fungsi</th>\
+                        <td>' + (feature.properties['Fungsi'] !== null ? autolinker.link(feature.properties['Fungsi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Keterangan</th>\
+                        <td>' + (feature.properties['Keterangan'] !== null ? autolinker.link(feature.properties['Keterangan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nomor KK</th>\
+                        <td>' + (feature.properties['Nomor KK'] !== null ? autolinker.link(feature.properties['Nomor KK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nama KK</th>\
+                        <td>' + (feature.properties['Nama KK'] !== null ? autolinker.link(feature.properties['Nama KK'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Alamat</th>\
+                        <td>' + (feature.properties['Alamat'] !== null ? autolinker.link(feature.properties['Alamat'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">RT</th>\
+                        <td>' + (feature.properties['RT'] !== null ? autolinker.link(feature.properties['RT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Nama Dusun</th>\
+                        <td>' + (feature.properties['Nama Dusun'] !== null ? autolinker.link(feature.properties['Nama Dusun'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Bulan Pengisian</th>\
+                        <td>' + (feature.properties['Bulan Pengisian'] !== null ? autolinker.link(feature.properties['Bulan Pengisian'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Tahun Pengisian</th>\
+                        <td>' + (feature.properties['Tahun Pengisian'] !== null ? autolinker.link(feature.properties['Tahun Pengisian'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Pengisi</th>\
+                        <td>' + (feature.properties['Pengisi'] !== null ? autolinker.link(feature.properties['Pengisi'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Jabatan</th>\
+                        <td>' + (feature.properties['Jabatan'] !== null ? autolinker.link(feature.properties['Jabatan'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Sumber Data</th>\
+                        <td>' + (feature.properties['Sumber Data'] !== null ? autolinker.link(feature.properties['Sumber Data'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_RT04_Segoroyoso2_0() {
+            return {
+                pane: 'pane_RT04_Segoroyoso2',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,204,191,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_RT04_Segoroyoso2');
+        map.getPane('pane_RT04_Segoroyoso2').style.zIndex = 409;
+        map.getPane('pane_RT04_Segoroyoso2').style['mix-blend-mode'] = 'normal';
+        var layer_RT04_Segoroyoso2 = new L.geoJson(json_rt04_segoroyoso2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_rt04_segoroyoso2',
+            layerName: 'layer_RT04_Segoroyoso2',
+            pane: 'pane_RT04_Segoroyoso2',
+            onEachFeature: pop_RT04_Segoroyoso2,
+            style: style_RT04_Segoroyoso2_0,
+        });
+        bounds_group.addLayer(layer_RT04_Segoroyoso2);
+        map.addLayer(layer_RT04_Segoroyoso2);
 
             var title = new L.Control();
             title.onAdd = function (map) {
@@ -2568,11 +3192,18 @@
             '<img src="legend/RT05PadukuhanTrukan_14.png" /> RT 05 Trukan': layer_RT05PadukuhanTrukan_14,
             '<img src="legend/RT06PadukuhanTrukan_15.png" /> RT 06 Trukan': layer_RT06PadukuhanTrukan_15,
             '<img src="legend/RT01_Kloron.png" /> RT 01 Kloron': layer_RT01_Kloron,
+            '<img src="legend/RT02_Kloron.png" /> RT 02 Kloron': layer_RT02_Kloron,
             '<img src="legend/RT03_Kloron.png" /> RT 03 Kloron': layer_RT03_Kloron,
+            '<img src="legend/RT04_Kloron.png" /> RT 04 Kloron': layer_RT04_Kloron,
             '<img src="legend/RT01_Segoroyoso1.png" /> RT 01 Segoroyoso 1': layer_RT01_Segoroyoso1,
+            '<img src="legend/RT02_Segoroyoso1.png" /> RT 02 Segoroyoso 1': layer_RT02_Segoroyoso1,
+            '<img src="legend/RT03_Segoroyoso1.png" /> RT 03 Segoroyoso 1': layer_RT03_Segoroyoso1,
+            '<img src="legend/RT04_Segoroyoso1.png" /> RT 04 Segoroyoso 1': layer_RT04_Segoroyoso1,
             '<img src="legend/RT01_Segoroyoso2.png" /> RT 01 Segoroyoso 2': layer_RT01_Segoroyoso2,
+            '<img src="legend/RT02_Segoroyoso2.png" /> RT 02 Segoroyoso 2': layer_RT02_Segoroyoso2,
             '<img src="legend/RT03_Segoroyoso2.png" /> RT 03 Segoroyoso 2': layer_RT03_Segoroyoso2,
-            '<img src="legend/Bangunan_16.png" /> Bangunan': layer_Bangunan,
+            '<img src="legend/RT04_Segoroyoso2.png" /> RT 04 Segoroyoso 2': layer_RT04_Segoroyoso2,
+            '<img src="legend/Bangunan_13.png" /> Bangunan': layer_Bangunan_13,
             '<img src="legend/BatasPadukuhan_14.png" /> Batas RT Kloron': layer_Batas_RT_Kloron,
             '<img src="legend/BatasPadukuhan_14.png" /> Batas RT Segoroyoso 1': layer_Batas_RT_Segoroyoso1,
             '<img src="legend/BatasPadukuhan_14.png" /> Batas RT Segoroyoso 2': layer_Batas_RT_Segoroyoso2,
